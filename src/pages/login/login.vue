@@ -33,16 +33,20 @@ export default {
   },
   methods: {
     async submit() {
-      let { userName, passWord } = this;
-      console.log(userName,passWord)
+      let { userName, passWord, checked } = this;
       let r = await this.login({ userName, passWord });
-      console.log(r);
-      // this.jump("layout");
-      if (this.checked) {
-        localStorage.userName = this.userName;
-        localStorage.passWord = this.passWord;
-      }
-      //:this.$message({ showClose: true, message: "用户名密码错误", type: "error" })
+      if (r.status == 1) {
+        this.jump("layout");
+        if (checked) {
+          localStorage.userName = userName;
+          localStorage.passWord = passWord;
+        }
+      } else
+        this.$message({
+           showClose: true,
+           message: "用户名密码错误",
+           type: "error"
+        });
     }
   }
 };
