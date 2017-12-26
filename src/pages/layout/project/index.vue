@@ -13,14 +13,14 @@
       <el-button type="success" size="small" v-text="'查询'" />
     </header>
     <div class="middle">
-      <el-button type="primary" size="small" v-text="'新建'" @click="show('showCreateProject')" />
+      <el-button type="primary" size="small" v-text="'新建'" @click="show('showCreate')" />
       <el-button type="success" size="small" v-text="'刪除'" />
     </div>
     <list :data="data" :title="title" isLocation isCheck isEdit />
-    <el-dialog width="1310px" center title="新建项目" :visible.sync="showCreateProject">
-      <CreateProject />
-      <div style="text-align:center">
-        <el-button class="next" type="success" @click="show('showDrawMap')">下一步 </el-button>
+    <el-dialog width="1310px" center title="新建项目" :visible.sync="showCreate">
+      <Create />
+      <div class="next">
+        <el-button  type="success" @click="show('showDrawMap')">下一步 </el-button>
       </div>
     </el-dialog>
     <model styles="padding:0" :showMsg.sync="showDrawMap">
@@ -35,21 +35,21 @@
   import list from 'cpt/list/index.vue'
   import model from "cpt/model";
   import drawMap from "cpt/map/drawMap";
-  import CreateProject from "./CreateProject";
+  import Create from "./create";
   export default {
     components: {
       chart,
       drawMap,
       list,
       model,
-      CreateProject
+      Create
     },
     data() {
       return {
         mapTypes: BMAP_NORMAL_MAP,
         showDrawMap: false,
         showLocateMap: false,
-        showCreateProject: false,
+        showCreate: false,
         project_name: '',
         leader: '',
         title: {
@@ -70,7 +70,7 @@
     },
     methods: {
       show(prop) {
-        prop == 'showDrawMap' && (this.showCreateProject = false)
+        prop == 'showDrawMap' && (this.showCreate = false)
         this[prop] = true
       }
     }
@@ -79,7 +79,8 @@
 </script>
 <style lang="less">
   .next {
-    text-align: center
+    text-align: center;
+    margin: 20px auto 0
   }
   .separator{
     background: #fff;

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/pages/login/login'
-import layout from '@/pages/layout/index'
+import layout from '@/pages/layout/index.vue'
 import monitor from '@/pages/monitor'
 import permission from './permission'
 Vue.use(Router)
@@ -21,7 +21,6 @@ export default new Router({
     {
       path: '/layout',
       component: layout,
-      name:"布局",
       children: [{
           path: '/',
           name:"首页",

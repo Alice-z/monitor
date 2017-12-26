@@ -51,8 +51,6 @@
       return {
         date: '',
         radio: '曲线图',
-        showDrawMap: false,
-        showLocateMap: false,
         showCreateProject: false,
         project_name: '',
         leader: '',
@@ -76,6 +74,18 @@
         prop == 'showDrawMap' && (this.showCreateProject = false)
         this[prop] = true
       }
+    },
+    mounted() {
+      import ('utils/zoom.js').then(
+        r => Zoomerang
+        .config({
+          maxHeight: 400,
+          maxWidth: 400,
+          bgColor: '#000',
+          bgOpacity: .85
+        })
+        .listen('.zoom')
+      )
     }
   };
 

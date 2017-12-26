@@ -1,11 +1,13 @@
 import api from '../api/fetch'
 import ajax from '../api'
 import crumbs from 'cpt/crumbs'
+import list from 'cpt/list'
 
 
 export default {
   components: {
-    crumbs
+    crumbs,
+    list
   },
   methods: {
     ajax,

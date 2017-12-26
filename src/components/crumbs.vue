@@ -1,7 +1,7 @@
 <template>
   <el-breadcrumb class="separator" separator-class="el-icon-arrow-right">
     <el-breadcrumb-item  to="layout" >首页 </el-breadcrumb-item>
-    <el-breadcrumb-item :key="item" :to="{ name: item }" v-for="item in routelist">{{item}} </el-breadcrumb-item>
+    <el-breadcrumb-item :key="name" :to="{ name }" v-for="name in routelist">{{name}} </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
@@ -18,12 +18,12 @@
     },
     watch:{
       $route(){
-        var index = routeList.indexOf(to.name)
+        var index =this.routelist.indexOf(this.$route.name )
         if (index !== -1) {
           //如果存在路由列表，则把之后的路由都删掉
-          routeList.splice(index + 1, routeList.length - index - 1)
+          this.routeList.splice(index + 1, this.routeList.length - index - 1)
         } else {
-          routeList.push(to.name)
+          this.routeList.push(this.$route.name)
         }
       }
     }
@@ -32,7 +32,15 @@
 </script>
 
 <style>
+.separator {
+    background: #fff;
+    margin: -10px -10px 20px;
+    padding: 20px;
+}
 
-
+.el-breadcrumb {
+    font-size: 14px;
+    line-height: 1;
+}
 </style>
 

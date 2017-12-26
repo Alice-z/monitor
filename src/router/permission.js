@@ -1,5 +1,5 @@
  const permission = [{
-  path: '/user',
+  path: '/permission',
   name:'用户管理',
   component: () =>import ('@/pages/layout/permission/user'),
   meta: {

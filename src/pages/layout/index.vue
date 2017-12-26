@@ -17,7 +17,7 @@
         style="height:100%;width: 220px;margin-right:-1px"
         default-active="home" 
         @open="jump" @close="jump">
-        <el-menu-item index="layout" style="background:#222d49">
+        <el-menu-item index="layout" >
           <i class="iconfont icon-home4" style="margin-right:15px" ></i>
           <span slot="title">系统首页</span>
         </el-menu-item>
@@ -48,8 +48,6 @@
         navInfo,
         isShow: false
       }
-    },
-    mounted(){
     }
   };
 

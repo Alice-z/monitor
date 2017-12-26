@@ -1,5 +1,5 @@
 <template>
-  <el-form :inline="true" label-width="80px" :model="formInline" class="p-form">
+  <el-form :inline="true" label-width="80px" :model="formInline" class="creat-form">
     <el-form-item required label="项目名称">
       <el-input v-model="formInline.user" placeholder="项目名称"></el-input>
     </el-form-item>
@@ -57,9 +57,6 @@
         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
       </el-upload>
     </el-form-item>
-    <el-form-item>
-
-    </el-form-item>
   </el-form>
 </template>
 
@@ -99,14 +96,13 @@
 
 </script>
 <style lang="less">
-  .p-form {
+  .creat-form {
     .el-form-item {
       width: 300px;
     }
     .avatar-uploader {
       float: left;
       margin-right: 20px;
-      
     }
     .el-upload--text{
       background-color: #F2F6FC!important

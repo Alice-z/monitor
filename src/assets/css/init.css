@@ -110,3 +110,12 @@ textarea{
   padding-top: 0;
  padding-bottom: 0
 }
+.el-submenu .el-menu-item{
+  background:rgb(34, 49, 82)!important
+}
+.el-menu-item.is-active{
+  color: #05bc97;
+}
+.el-submenu .el-menu-item{
+  padding-left: 52px!important
+}
