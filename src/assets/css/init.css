@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #999;
+  text-decoration: none;
+  transition: color .2s ease;
+  cursor: pointer
+}
+
+a:hover {
+  color: #f33!important;
+}
+
+.fl {
+  float: left;
+}
+
+.el-button--success {
+  background: #05bc97;
+  border-color: #05bc97
+}
+
+#allmap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  font-family: "微软雅黑";
+}
+
+.el-button--mini,
+.el-button--mini.is-round {
+  padding: 4px
+}
+
+.el-table thead {
+  color: #333;
+}
+
+
+/* 地图搜索下拉列表 */
+
+.tangram-suggestion-main {
+  z-index: 2019;
+}
+
+
+/* 側邊欄 */
+
+.el-menu--collapse {
+  width: 60px!important
+}
+
+.el-icon-tickets {
+  position: relative;
+  left: -13px;
+}
+
+.el-message-box {
+  z-index: 2020!important;
+}
+
+.header {
+  background: #fff;
+  padding: 10px;
+  font-size: 14px;
+  height: 54px!important;
+}
+
+.el-select .el-input__inner {
+  height: 34px!important;
+  width: 150px!important;
+}
+
+.el-range-editor {
+  height: 35px!important;
+  padding: 0!important;
+}
+
+.middle {
+  margin: 10px 0
+}
+
+.header button {
+  position: relative;
+  top: -2px;
+}
+.header label {
+text-align: right
+}
+/* 去掉百度地图左下角文字 */
+.anchorBL {
+  display: none;
+}
+input{
+  background-color: #F2F6FC!important
+}
+textarea{
+  background-color: #F2F6FC!important
+}
+.el-menu-item-group__title{
+  padding-top: 0;
+ padding-bottom: 0
+}
