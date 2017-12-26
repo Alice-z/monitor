@@ -63,6 +63,9 @@
         }
       };
     },
+    created(){
+      this.getList().then(r=>console.log(r) )
+    },
     computed: {
       data() {
         return this.$store.state.project.data

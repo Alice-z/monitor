@@ -3,13 +3,13 @@
     <div class="form">
       <el-input
         prefix-icon="iconfont icon-user"
-        v-model="form.userName"
+        v-model="userName"
         auto-complete="off"
         placeholder="请输入用户名" />
       <el-input
         prefix-icon="iconfont icon-lock1"
         type="password"
-        v-model.number="form.passWord"
+        v-model.number="passWord"
         auto-complete="off"
         placeholder="请输入用密码"
       />
@@ -27,20 +27,19 @@ export default {
   data() {
     return {
       checked: false,
-      form: {
-        userName: localStorage.userName || "",
-        passWord: localStorage.passWord || ""
-      }
+      userName: localStorage.userName || "",
+      passWord: localStorage.passWord || ""
     };
   },
   methods: {
     async submit() {
-      let r = await this.login();
+      let { userName, passWord } = this;
+      let r = await this.login({ userName, passWord });
       console.log(r);
       this.jump("layout");
       if (this.checked) {
-        localStorage.userName = this.form.userName;
-        localStorage.passWord = this.form.passWord;
+        localStorage.userName = this.userName;
+        localStorage.passWord = this.passWord;
       }
       //:this.$message({ showClose: true, message: "用户名密码错误", type: "error" })
     }
@@ -48,28 +47,28 @@ export default {
 };
 </script>
 <style lang="less">
-  .login {
-    background: url('~img/login_bg1.png') no-repeat ;
-    background-size: 100% 100%;
-    width: 100%;
-    height: 100%;
+.login {
+  background: url("~img/login_bg1.png") no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+}
+.form {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+  padding: 80px;
+  padding-bottom: 50px;
+  width: 554px;
+  position: absolute;
+  right: 412px;
+  top: 65px;
+  .iconfont {
+    font-size: 24px;
+    position: relative;
+    top: -3px;
   }
-  .form {
-    background: rgba(255, 255, 255, .6);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
-    padding: 80px;
-    padding-bottom: 50px;
-    width: 554px;
-    position: absolute;
-    right: 412px;
-    top: 65px;
-    .iconfont{
-      font-size: 24px;
-      position: relative;
-      top: -3px
-    }
-    .el-checkbox__label{
-      color: #fff!important;
+  .el-checkbox__label {
+    color: #fff !important;
     font-size: 20px;
   }
   .el-input {
