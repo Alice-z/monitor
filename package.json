@@ -5,8 +5,9 @@
   "author": "Alice <375898312@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "dev": "npm start & npm run egg",
+    "start": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "egg": "cd egg && npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
