@@ -34,9 +34,10 @@ export default {
   methods: {
     async submit() {
       let { userName, passWord } = this;
+      console.log(userName,passWord)
       let r = await this.login({ userName, passWord });
       console.log(r);
-      this.jump("layout");
+      // this.jump("layout");
       if (this.checked) {
         localStorage.userName = this.userName;
         localStorage.passWord = this.passWord;
