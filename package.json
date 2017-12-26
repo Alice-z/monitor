@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npm start & npm run egg",
     "start": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "egg": "cd egg && npm run dev",
+    "egg": "cd ../egg && npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
