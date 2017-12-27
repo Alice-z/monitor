@@ -17,15 +17,15 @@
       this.routelist.push(this.$route.name)
     },
     watch:{
-      $route(){
-        var index =this.routelist.indexOf(this.$route.name )
-        if (index !== -1) {
-          //如果存在路由列表，则把之后的路由都删掉
-          this.routeList.splice(index + 1, this.routeList.length - index - 1)
-        } else {
-          this.routeList.push(this.$route.name)
-        }
-      }
+      // $route(){
+      //   var index =this.routelist.indexOf(this.$route.name )
+      //   if (index !== -1) {
+      //     //如果存在路由列表，则把之后的路由都删掉
+      //     this.routeList.splice(index + 1, this.routeList.length - index - 1)
+      //   } else {
+      //     this.routeList.push(this.$route.name)
+      //   }
+      // }
     }
   }
 

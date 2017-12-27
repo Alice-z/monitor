@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="background:#0d1424;line-height:70px;height:70px">
+    <el-header style="background:#222;box-shadow:0 0 5px rgba(0, 0, 0, 0.5);line-height:70px;height:70px">
       <span    class="title">
         <img src="~@/assets/img/logo.png" style="vertical-align: middle">
         <span>房屋安全在线检测平台</span>
@@ -12,9 +12,9 @@
         unique-opened 
         router 
         :collapse="isShow" 
-        background-color="#30426a" 
+        background-color="#313131" 
         text-color="#bfbfbf" 
-        style="height:100%;width: 220px;margin-right:-1px"
+        style="height:100%;width: 220px;margin-right:-1px;box-shadow:0 0 5px rgba(0, 0, 0, 0.5);"
         default-active="home" 
         @open="jump" @close="jump">
         <el-menu-item index="layout" >
