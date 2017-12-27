@@ -14,7 +14,7 @@
         :collapse="isShow" 
         background-color="#313131" 
         text-color="#bfbfbf" 
-        style="height:100%;width: 220px;margin-right:-1px;box-shadow:0 0 5px rgba(0, 0, 0, 0.5);"
+        class="menu"
         default-active="home" 
         @open="jump" @close="jump">
         <el-menu-item index="layout" >
@@ -53,7 +53,22 @@
 
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+ .menu{
+   font-size:16px; 
+   height:100%; 
+   width: 220px; 
+   margin-right:-1px; 
+   box-shadow:0 0 5px rgba(0, 0, 0, 0.5); 
+   .iconfont{
+     font-size: 20px;
+     top: -3px;
+     position: relative;
+   }
+   .icon{
+     font-size: 20px;
+   }
+ }
   .title {
     color: #fff;
     font-size: 20px;
