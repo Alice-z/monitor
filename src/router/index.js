@@ -59,27 +59,28 @@ export default new Router({
       path: '/permission',
       name: "权限管理",
       component: () => import('@/pages/layout/permission/user'),
-      children: [{
-        path: '/user',
-        name: '用户管理',
-        component: () => import('@/pages/layout/permission/user'),
-      },
-      {
-        path: '/role',
-        name: '角色管理',
-        component: () => import('@/pages/layout/permission/role'),
-      },
-      {
-        path: '/resource',
-        name: '资源管理',
-        component: () => import('@/pages/layout/permission/resource'),
-      },
-      {
-        path: '/framework',
-        name: '组织架构',
-        component: () => import('@/pages/layout/permission/framework'),
-      }
+      children: [
       ]
+    },
+    {
+      path: '/user',
+      name: '用户管理',
+      component: () => import('@/pages/layout/permission/user'),
+    },
+    {
+      path: '/role',
+      name: '角色管理',
+      component: () => import('@/pages/layout/permission/role'),
+    },
+    {
+      path: '/resource',
+      name: '资源管理',
+      component: () => import('@/pages/layout/permission/resource'),
+    },
+    {
+      path: '/framework',
+      name: '组织架构',
+      component: () => import('@/pages/layout/permission/framework'),
     }
     ]
   }

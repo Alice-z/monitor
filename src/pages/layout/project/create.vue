@@ -1,46 +1,46 @@
 <template>
   <el-form :inline="true" label-width="80px" :model="formInline" class="creat-form">
     <el-form-item required label="项目名称">
-      <el-input v-model="formInline.user" placeholder="项目名称"></el-input>
+      <el-input v-model="formInline.user"></el-input>
     </el-form-item>
     <el-form-item required label="项目地址">
-      <el-select v-model="formInline.region" placeholder="项目地址">
+      <el-select v-model="formInline.region" >
         <el-option label="区域一" value="shanghai"></el-option>
         <el-option label="区域二" value="beijing"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item required label="负责人">
-      <el-select v-model="formInline.region" placeholder="负责人">
+      <el-select v-model="formInline.region" >
         <el-option label="区域一" value="shanghai"></el-option>
         <el-option label="区域二" value="beijing"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item required label="房屋年代">
-      <el-input v-model="formInline.user" placeholder="房屋年代"></el-input>
+      <el-input v-model="formInline.user" ></el-input>
     </el-form-item>
     <el-form-item required label="房屋结构">
-      <el-select v-model="formInline.region" placeholder="房屋结构">
+      <el-select v-model="formInline.region" >
         <el-option label="区域一" value="shanghai"></el-option>
         <el-option label="区域二" value="beijing"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item required label="委托单位">
-      <el-input v-model="formInline.user" placeholder="委托单位"></el-input>
+      <el-input v-model="formInline.user" ></el-input>
     </el-form-item>
     <el-form-item required label="房屋层数">
-      <el-input v-model="formInline.user" placeholder="房屋层数"></el-input>
+      <el-input v-model="formInline.user" ></el-input>
     </el-form-item>
     <el-form-item style="width:100%" required label="监测类型">
       <el-radio-group v-model="radio">
-        <el-radio :label="3">备选项</el-radio>
-        <el-radio :label="6">备选项</el-radio>
-        <el-radio :label="9">备选项</el-radio>
+        <el-radio :label="3">裂缝</el-radio>
+        <el-radio :label="6">沉降</el-radio>
+        <el-radio :label="9">倾斜</el-radio>
       </el-radio-group>
     </el-form-item>
-    <el-form-item style="width:100%" required label="监测类型">
-      <el-input type="textarea" :rows="5" style="width:900px" placeholder="请输入内容" />
+    <el-form-item style="width:100%" required label="项目概况">
+      <el-input type="textarea" :rows="5" style="width:900px"  />
     </el-form-item>
-    <el-form-item style="width:100%" required label="监测类型">
+    <el-form-item style="width:100%" required label="项目图片">
       <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess"
         :before-upload="beforeAvatarUpload">
         <img v-if="imageUrl" :src="imageUrl" class="avatar">
@@ -56,6 +56,8 @@
         <img v-if="imageUrl" :src="imageUrl" class="avatar">
         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
       </el-upload>
+    </el-form-item>
+    <el-form-item required label="项目资料">
     </el-form-item>
   </el-form>
 </template>
@@ -65,7 +67,7 @@
     data() {
       return {
         imageUrl: '',
-        radio: '',
+        radio: 3,
         formInline: {
           user: '',
           region: ''
@@ -102,13 +104,13 @@
     }
     .avatar-uploader {
       float: left;
-      margin-right: 20px;
+      margin-right: 90px;
     }
-    .el-upload--text{
+    .el-upload--text {
       background-color: #F2F6FC!important
     }
     .avatar-uploader .el-upload {
-      border: 1px dashed #d9d9d9;
+      border: 2px dashed #0f996b;
       border-radius: 6px;
       cursor: pointer;
       position: relative;
@@ -120,9 +122,9 @@
     .avatar-uploader-icon {
       font-size: 28px;
       color: #8c939d;
-      width: 178px;
-      height: 178px;
-      line-height: 178px;
+      width: 150px;
+      height: 150px;
+      line-height: 150px;
       text-align: center;
     }
     .avatar {

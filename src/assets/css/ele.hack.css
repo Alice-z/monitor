@@ -53,8 +53,9 @@
   color: #05bc97;
 }
 .el-submenu .el-menu-item{
-  padding-left: 52px!important
+  padding-left: 60px!important
 }
-.el-form-item__content{
 
+.el-dialog__footer{
+  text-align: center!important
 }

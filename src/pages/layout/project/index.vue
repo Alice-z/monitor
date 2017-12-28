@@ -81,10 +81,6 @@
 
 </script>
 <style lang="less">
-  .next {
-    text-align: center;
-    margin: 20px auto 0
-  }
   .separator{
     background: #fff;
     margin: -10px -10px 20px;

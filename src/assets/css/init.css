@@ -50,6 +50,7 @@ a:hover {
   padding: 10px;
   font-size: 14px;
   height: 54px!important;
+  min-width: 1200px;
 }
 
 .middle {
@@ -70,9 +71,15 @@ text-align: right
 
 input{
   background-color: #F2F6FC!important;
-  border-radius: 0!important
+  border-radius: 0!important;
+}
+input:hover{
+  cursor: pointer
 }
 textarea{
   background-color: #F2F6FC!important
 }
-
+.next {
+  text-align: center;
+  margin: 20px
+}
