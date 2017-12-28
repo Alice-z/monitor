@@ -2,10 +2,10 @@
   <div>
     <crumbs/>
     <div  class="resource">
-      <el-tree class="fl tree el-tabs--border-card"  :data="treeData" show-checkbox default-expand-all node-key="id" ref="tree"
+      <el-tree class=" tree el-tabs--border-card"  :data="treeData" show-checkbox default-expand-all node-key="id" ref="tree"
         highlight-current>
       </el-tree>
-      <el-tabs class="fl tab" v-model="activeName2" type="border-card" @tab-click="handleClick">
+      <el-tabs class=" tab" v-model="activeName2" type="border-card" @tab-click="handleClick">
         <el-tab-pane label="添加模块" name="first">添加模块</el-tab-pane>
         <el-tab-pane label="功能模块" name="second">功能模块</el-tab-pane>
         <el-tab-pane label="快速添加按钮" name="third">快速添加按钮</el-tab-pane>
@@ -37,8 +37,11 @@
 <style lang="less" csoped>
   .resource {
     height: 800px;
+    min-width: 700px;
     background: #fff;
     padding: 20px;
+    display: flex;
+    overflow: hidden;
     ::after{
       content: '';
       display: block;
@@ -51,9 +54,10 @@
     padding-right: 20px;
   }
   .tab{
-    width: 1000px;
+    min-width: 1000px;
     margin-left: 20px;
     height: 100%;
+    flex: auto
   }
 
 

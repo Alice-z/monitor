@@ -1,9 +1,24 @@
 <template>
   <div class="list">
-    <el-table ref="multipleTable" @selection-change="handleSelectionChange" :data="data" border tooltip-effect="dark" style="width: 100%;text-algin:center">
+    <el-table
+      ref="multipleTable"
+      @selection-change="handleSelectionChange"
+      :data="data"
+      border
+      tooltip-effect="dark"
+      style="width: 100%;text-algin:center">
       <el-table-column align="center" type="selection" width="55" />
-      <el-table-column align="center" show-overflow-tooltip v-for="(i,k) in title" :key="k" :prop="k" :label="i" />
-      <el-table-column align="center" prop="address" label="操作" :width="labelWidth">
+      <el-table-column
+        align="center"
+        show-overflow-tooltip v-for="(i,k) in title"
+        :key="k"
+        :prop="k"
+        :label="i" />
+      <el-table-column
+        align="center"
+        prop="address"
+        label="操作"
+        :width="labelWidth">
         <template slot-scope="scope">
           <el-button v-if="isLocation" @click="location(scope.row)" type="success" size="mini">定位</el-button>
           <el-button v-if="isCheck" @click="check(scope.row)" type="primary" size="mini">详情</el-button>
@@ -15,22 +30,38 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination class="pageing" background @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="10"
-      layout="prev, pager, next, jumper" :total="1000" />
+    <el-pagination
+      class="pageing"
+      background @current-change="handleCurrentChange"
+      :current-page.sync="currentPage"
+      :page-size="10"
+      layout="prev, pager, next, jumper"
+      :total="1000" />
     <Model styles="padding:0" :showMsg.sync="showdrawMap">
       <drawMap :mapType="mapTypes[1]" :isShow.sync="showdrawMap" />
     </Model>
     <Model styles="padding:0" :showMsg.sync="showLocateMap">
       <LocateMap :mapType="mapTypes[0]" :isShow.sync="showLocateMap" />
     </Model>
-    <el-dialog width="1350px" :visible.sync="showDetails">
-      <el-form :inline="true" label-width="110px" :model="detailsInof">
-        <el-form-item :key="k" :label="i+':'" v-for="(i,k) in title">
+    <el-dialog
+      width="1350px"
+      :visible.sync="showDetails">
+      <el-form
+        :inline="true"
+        label-width="110px"
+        :model="detailsInof">
+        <el-form-item
+          :key="k"
+          :label="i+':'"
+          v-for="(i,k) in title">
           <el-input disabled="disabled" :value="detailsInof[k]" />
         </el-form-item>
       </el-form>
     </el-dialog>
-    <el-dialog title="修改信息" width="1350px" :visible.sync="showEdit">
+    <el-dialog
+      title="修改信息"
+      width="1350px"
+      :visible.sync="showEdit">
       <el-form :inline="true" label-width="110px" :model="editInfo">
         <el-form-item required :key="k" :label="i" v-for="(i,k) in title">
           <el-input v-model="editInfo[k]" />
@@ -41,8 +72,13 @@
       </span>
     </el-dialog>
     <el-dialog title="权限配置" center :visible.sync="showRole">
-      <el-tree :data="treeData" show-checkbox default-expand-all node-key="id" ref="tree" highlight-current :props="defaultProps">
-      </el-tree>
+      <el-tree
+        :data="treeData"
+        show-checkbox
+        default-expand-all
+        node-key="id"
+        ref="tree"
+        highlight-current :props="defaultProps"/>
     </el-dialog>
   </div>
 </template>
@@ -116,10 +152,7 @@
         this.showRole = true
       },
       deleAllchecked() {
-        let {
-          data,
-          checked
-        } = this;
+        let {   data,   checked } = this;
         for (let i in data) {
           for (let j in checked) {
             checked[j].id == data[i].id && data.splice(i, 1);
