@@ -38,10 +38,15 @@
       layout="prev, pager, next, jumper"
       :total="1000" />
     <Model styles="padding:0" :showMsg.sync="showdrawMap">
-      <drawMap :mapType="mapTypes[1]" :isShow.sync="showdrawMap" />
+      <drawMap
+      :mapType="mapTypes[1]"
+      :isShow.sync="showdrawMap" />
     </Model>
     <Model styles="padding:0" :showMsg.sync="showLocateMap">
-      <LocateMap :mapType="mapTypes[0]" :isShow.sync="showLocateMap" />
+      <LocateMap
+      :polygon="polygon"
+      :mapType="mapTypes[0]"
+      :isShow.sync="showLocateMap" />
     </Model>
     <el-dialog
       width="1350px"
@@ -117,8 +122,9 @@
         select: {},
         checked: [],
         date: null,
-        detailsInof: {},
-        editInfo: {},
+        detailsInof: {},//详情信息
+        editInfo: {},//修改项目信息
+        polygon:{},//当前项目坐标信息
         defaultProps: {
           children: 'children',
           label: 'label'
@@ -142,7 +148,7 @@
         this.showdrawMap = true;
       },
       location(r) {
-        this.$store.commit("currentPath", r.polygon);
+        this.polygon= r.polygon
         this.showLocateMap = true;
       },
       Issued() {

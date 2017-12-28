@@ -1,7 +1,7 @@
 <template>
   <el-form :inline="true" label-width="80px" :model="data" class="creat-form">
     <el-form-item required label="项目名称">
-      <el-input v-model="data.project_address"></el-input>
+      <el-input v-model="data.project_name"></el-input>
     </el-form-item>
     <el-form-item required label="项目地址">
       <el-select v-model="data.project_address" >
@@ -68,7 +68,6 @@
     props:['showDrawMap','showCreate'],
     computed:{
       data(){
-        console.log(this.$store)
         return this.$store.state.project.newProject
       }
     },
@@ -76,10 +75,6 @@
       return {
         imageUrl: '',
         radio: 3,
-        formInline: {
-          user: '',
-          region: ''
-        }
       }
     },
     methods: {

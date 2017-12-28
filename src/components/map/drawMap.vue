@@ -50,17 +50,20 @@ export default {
       }) .then(async () => {
           let r=  await  this.$store.dispatch("createProject",payload);
           if(r.code==0){
+            this.$message.error('项目名已存在')
             this.showMsg = false;
             this.map.removeOverlay(this.overlays);
             return
           }
-          this.showMsg = false;
-          this.$emit("update:isShow", false);
+          this.$store.dispatch('getData')
           this.map.removeOverlay(this.overlays);
           this.$message({
             message: "新建项目成功",
             type: "success"
           });
+          this.showMsg = false;
+          this.$emit("update:isShow", false);
+
         })
     },
     createSucc() {
