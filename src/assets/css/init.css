@@ -23,10 +23,7 @@ a:hover {
   float: left;
 }
 
-.el-button--success {
-  background: #05bc97;
-  border-color: #05bc97
-}
+
 
 #allmap {
   width: 100%;
@@ -36,15 +33,10 @@ a:hover {
   font-family: "微软雅黑";
 }
 
-.el-button--mini,
-.el-button--mini.is-round {
-  padding: 4px
+/* 去掉百度地图左下角文字 */
+.anchorBL {
+  display: none;
 }
-
-.el-table thead {
-  color: #333;
-}
-
 
 /* 地图搜索下拉列表 */
 
@@ -53,36 +45,12 @@ a:hover {
 }
 
 
-/* 側邊欄 */
-
-.el-menu--collapse {
-  width: 60px!important
-}
-
-.el-icon-tickets {
-  position: relative;
-  left: -13px;
-}
-
-.el-message-box {
-  z-index: 2020!important;
-}
-
 .header {
   background: #fff;
   padding: 10px;
   font-size: 14px;
   height: 54px!important;
-}
-
-.el-select .el-input__inner {
-  height: 34px!important;
-  width: 150px!important;
-}
-
-.el-range-editor {
-  height: 35px!important;
-  padding: 0!important;
+  min-width: 1200px;
 }
 
 .middle {
@@ -92,6 +60,7 @@ a:hover {
 .header button {
   position: relative;
   top: -2px;
+  margin-left: 20px;
 }
 .header label {
 text-align: right
@@ -99,27 +68,18 @@ text-align: right
 .header label {
   margin-left: 20px
   }
-/* 去掉百度地图左下角文字 */
-.anchorBL {
-  display: none;
-}
+
 input{
-  background-color: #F2F6FC!important
+  background-color: #F2F6FC!important;
+  border-radius: 0!important;
+}
+input:hover{
+  cursor: pointer
 }
 textarea{
   background-color: #F2F6FC!important
 }
-.el-menu-item-group__title{
-  padding-top: 0;
- padding-bottom: 0
-}
-/* 侧边栏背景颜色 */
-.el-submenu .el-menu-item{
-  background:rgba(60, 60, 60, .7)!important
-}
-.el-menu-item.is-active{
-  color: #05bc97;
-}
-.el-submenu .el-menu-item{
-  padding-left: 52px!important
+.next {
+  text-align: center;
+  margin: 20px
 }

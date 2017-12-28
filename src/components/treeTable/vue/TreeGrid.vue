@@ -13,17 +13,17 @@
     </el-table-column>
     <el-table-column label="操作" v-if="treeType === 'normal'" width="360">
       <template slot-scope="scope">
-        <button type="button" class="el-button el-button--default el-button--small">
+        <el-button type="primary" size="mini" >
           <router-link :to="{ path: requestUrl + 'edit', query: {id: scope.row.Oid} }" tag="span">
             查看
           </router-link>
-        </button>
-        <el-button size="small" type="danger" @click="handleDelete(scope.row.id)">
+        </el-button>
+        <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">
           修改
         </el-button>
-        <button type="button" class="el-button el-button--success el-button--small" @click="addChild(scope.row.id) ">
+        <el-button type="success" size="mini" @click="addChild(scope.row.id) ">
           添加子部门
-        </button>
+        </el-button>
       </template>
     </el-table-column>
   </el-table>

@@ -16,7 +16,7 @@
       <el-button type="primary" size="small" v-text="'新建'" @click="show('showCreate')" />
       <el-button type="success" size="small" v-text="'刪除'" />
     </div>
-    <list :data="data" :title="title" isLocation isCheck isEdit />
+    <list labelWidth="200" :data="data" :title="title" isLocation isCheck isEdit />
     <el-dialog width="1310px" center title="新建项目" :visible.sync="showCreate">
       <Create />
       <div class="next">
@@ -81,10 +81,6 @@
 
 </script>
 <style lang="less">
-  .next {
-    text-align: center;
-    margin: 20px auto 0
-  }
   .separator{
     background: #fff;
     margin: -10px -10px 20px;

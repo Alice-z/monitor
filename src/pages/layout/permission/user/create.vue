@@ -21,12 +21,12 @@
     <el-form-item required label="移动电话">
       <el-input v-model="formInline.phone" placeholder="移动电话"></el-input>
     </el-form-item>
-    <div>
-      <label for="">备注:</label>
+    <div >
+      <label style="width:75px;display:inline-block;text-align:right;padding-right:12px"  for="">备注:</label>
       <el-input type="textarea" :rows="5" style="width:800px" placeholder="请输入内容" />
     </div>
     <div  class="next">
-    <el-button  type="success" @click="submit">确定 </el-button>
+      <el-button  type="success" @click="submit">确定 </el-button>
     </div>
 
   </el-form>
@@ -56,6 +56,7 @@
 </script>
 <style lang="less">
   .creat-form {
+    min-height:300px ;
     .el-form-item {
       width: 300px;
     }

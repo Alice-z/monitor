@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="monitor">
     <header>
       <img src="~img/header.png" alt="">
       <img src="~img/title.png" alt="">
@@ -21,20 +21,20 @@
         </li>
       </ul>
       <ul class="circle-bottom">
-        <li>
-          <el-progress type="circle" :percentage="50" status="exception" />
+        <li class="danger">
+          <el-progress type="circle" :percentage="45"  />
           <p>我是项目名</p>
         </li>
-        <li>
-          <el-progress type="circle" :percentage="11" status="exception" />
-          <p>我是项目名</p>
+        <li class="warning">
+          <el-progress type="circle" :percentage="70" />
+          <p>我是111</p>
         </li>
         <li>
-          <el-progress type="circle" :percentage="25"  />
+          <el-progress type="circle" :percentage="25" />
           <p>我是项目名</p>
         </li>
-        <li>
-          <el-progress type="circle" :percentage="22" status="success" />
+        <li class="success">
+          <el-progress type="circle" :percentage="52"  />
           <p>我是项目名</p>
         </li>
 
@@ -61,82 +61,101 @@
 
 </script>
 
-<style lang="less" scoped>
-  header {
-    height: 7%;
-    background: #1f2738;
-    position: relative;
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-    }
-  }
-
-  li {
-    float: left;
-    margin-left: 15px;
-    p {
-      text-align: center;
-      font-size: 14px;
-      font-weight: 100;
-      margin: 5px 0;
-    }
-  }
-
-  section {
-    height: 93%;
-    position: relative;
-    color: #ccc;
-    box-shadow: 0px 5px 20px #0cf inset;
-    img {
-      position: absolute;
-    }
-    .circle-top {
-      position: absolute;
-      padding: 30px 40px;
-      top: 50px;
-      right: 50px;
-      .bg {
-        background: url('~img/circle.png') no-repeat;
-        background-size: 100%;
-        height: 130px;
-        width: 130px;
-        line-height: 130px;
-        text-align: center
+<style lang="less">
+  .monitor {
+    height: 100%;
+    .warning {
+      svg>path:last-of-type {
+        stroke: rgb(212, 226, 81) !important;
       }
     }
-    .circle-bottom {
-      padding: 20px 30px;
-      background: url('~img/box.png') no-repeat;
-      background-size: 100%;
-      position: absolute;
-      bottom: 40px;
-      right: 50px;
+    .danger {
+      svg>path:last-of-type {
+        stroke:red !important;
+      }
     }
-    .rt {
-      top: 0px;
-      right: 0;
+    .success {
+      svg>path:last-of-type {
+        stroke: green !important;
+      }
     }
-    .rb {
-      bottom: 0;
-      right: 0;
-    }
-    .lt {
-      top: 0px;
-      left: 0;
-    }
-    .lb {
-      left: 0;
-      bottom: 0;
-    }
-  }
 
-  #map {
-    padding: 2px;
+    header {
+      height: 7%;
+      background: #1f2738;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+
+    li {
+      float: left;
+      margin-left: 15px;
+      p {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 100;
+        margin: 5px 0;
+      }
+    }
+
+    section {
+      height: 93%;
+      position: relative;
+      color: #ccc;
+      box-shadow: 0px 5px 20px #0cf inset;
+      img {
+        position: absolute;
+      }
+      .circle-top {
+        position: absolute;
+        padding: 30px 40px;
+        top: 50px;
+        right: 50px;
+        .bg {
+          background: url('~img/circle.png') no-repeat;
+          background-size: 100%;
+          height: 130px;
+          width: 130px;
+          line-height: 130px;
+          text-align: center
+        }
+      }
+      .circle-bottom {
+        padding: 20px 30px;
+        background: url('~img/box.png') no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom: 40px;
+        right: 50px;
+      }
+      .rt {
+        top: 0px;
+        right: 0;
+      }
+      .rb {
+        bottom: 0;
+        right: 0;
+      }
+      .lt {
+        top: 0px;
+        left: 0;
+      }
+      .lb {
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    #map {
+      padding: 2px;
+    }
   }
 
 </style>
