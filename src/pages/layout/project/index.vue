@@ -64,7 +64,7 @@
       };
     },
     created(){
-      this.getList().then(r=>console.log(r) )
+      this.api.getList().then(r=>console.log(r) )
     },
     computed: {
       data() {

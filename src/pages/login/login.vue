@@ -16,7 +16,7 @@
       <el-checkbox  v-model="checked">记住密码</el-checkbox>
       <button type="primary" @click="submit">登录</button>
       <div class="edit">
-        <a>忘记密码</a> |
+        <a @click="log" >忘记密码</a> |
         <a>注册账号</a>
       </div>
     </div>
@@ -32,11 +32,15 @@ export default {
     };
   },
   methods: {
+    log(){
+      let r= this.util.getCookie('token')
+      console.log(r)
+    },
     async submit() {
       let { userName, passWord, checked } = this;
-      let r = await this.login({ userName, passWord });
-      if (r.status == 1) {
-        this.jump("layout");
+      let r = await this.api.login({ userName, passWord });
+      if (r.code == 1) {
+        // this.jump("layout");
         if (checked) {
           localStorage.userName = userName;
           localStorage.passWord = passWord;
