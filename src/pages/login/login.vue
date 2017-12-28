@@ -39,9 +39,8 @@ export default {
     },
     async submit() {
       let { userName, passWord, checked } = this;
-      let r = await this.api.login({ userName, passWord });
+      let r = await this.fetch('/api/login',{ userName, passWord });
       if (r.code == 1) {
-        console.log(Cookies.get('TOKEN'));
         this.jump("layout");
         if (checked) {
           localStorage.userName = userName;

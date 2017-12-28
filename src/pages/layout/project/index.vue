@@ -13,15 +13,24 @@
       <el-button type="success" size="small" v-text="'查询'" />
     </header>
     <div class="middle">
-      <el-button type="primary" size="small" v-text="'新建'" @click="show('showCreate')" />
+      <el-button type="primary" size="small" v-text="'新建'" @click="create" />
       <el-button type="success" size="small" v-text="'刪除'" />
     </div>
-    <list labelWidth="200" :data="data" :title="title" isLocation isCheck isEdit />
-    <el-dialog width="1310px" center title="新建项目" :visible.sync="showCreate">
-      <Create />
-      <div class="next">
-        <el-button  type="success" @click="show('showDrawMap')">下一步 </el-button>
-      </div>
+    <list
+      labelWidth="200"
+      :data="data"
+      :title="title"
+      isLocation
+      isCheck
+      isEdit />
+    <el-dialog
+      width="1310px"
+      center
+      title="新建项目"
+      :visible.sync="showCreate">
+      <Create
+      :showCreate.sync="showCreate"
+      :showDrawMap.sync="showDrawMap"/>
     </el-dialog>
     <model styles="padding:0" :showMsg.sync="showDrawMap">
       <drawMap :mapType="mapTypes" :isShow.sync="showDrawMap" />
@@ -48,7 +57,6 @@
       return {
         mapTypes: BMAP_NORMAL_MAP,
         showDrawMap: false,
-        showLocateMap: false,
         showCreate: false,
         project_name: '',
         leader: '',
@@ -63,8 +71,8 @@
         }
       };
     },
-    created(){
-      this.api.getList().then(r=>console.log(r) )
+    async  created(){
+      this.$store.dispatch('getData')
     },
     computed: {
       data() {
@@ -72,9 +80,8 @@
       }
     },
     methods: {
-      show(prop) {
-        prop == 'showDrawMap' && (this.showCreate = false)
-        this[prop] = true
+      create() {
+        this.showCreate = true
       }
     }
   };

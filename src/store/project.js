@@ -1,23 +1,7 @@
+import api from '@/api/project'
 export default {
   state: {
-    data: [{
-      id: 1,
-      client: "阿里巴巴",
-      project_address:'北京',
-      project_name:'上海',
-      leader: "张晨成",
-      years: "2016-05-03",
-      layers: " 1518层",
-      structure: '混凝土',
-      polygon: {
-        center: {
-          lng: 121.476515,
-          lat: 31.23667
-        },
-        path: [],
-        zoom: 19
-      }
-    }],
+    data: [],
     currentPath: {
       center: {
         lng: '',
@@ -27,7 +11,8 @@ export default {
       zoom: 19
     },
     newProject: {
-      name: "",
+      project_address:'2',
+      project_name: "111",
       client: "",
       leader: "",
       years: "",
@@ -41,10 +26,21 @@ export default {
     },
   },
   mutations: {
+    getData:(state,payload)=>state.data=payload,
+    polygon:(state,payload)=>state.newProject.polygon=payload ,
     createProject: (state, payload) => state.data.push(payload),
     currentPath: (state, payload) => state.currentPath = payload,
-    newProject: (state, payload) => state.newProject = payload,
-
+    saveNewProject: (state, payload) => state.newProject = {... state.newProject,...payload},
+  },
+  actions:{
+    async  getData({commit,state},page=0){
+      let r= await api.getList({page})
+      commit('getData',r)
+    },
+    async createProject({commit, state},payload){
+      commit('polygon',payload)
+      return  await api.create(state.newProject)
+    }
   }
 }
 

@@ -1,34 +1,34 @@
 <template>
-  <el-form :inline="true" label-width="80px" :model="formInline" class="creat-form">
+  <el-form :inline="true" label-width="80px" :model="data" class="creat-form">
     <el-form-item required label="项目名称">
-      <el-input v-model="formInline.user"></el-input>
+      <el-input v-model="data.project_address"></el-input>
     </el-form-item>
     <el-form-item required label="项目地址">
-      <el-select v-model="formInline.region" >
+      <el-select v-model="data.project_address" >
         <el-option label="区域一" value="shanghai"></el-option>
         <el-option label="区域二" value="beijing"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item required label="负责人">
-      <el-select v-model="formInline.region" >
+      <el-select v-model="data.leader" >
         <el-option label="区域一" value="shanghai"></el-option>
         <el-option label="区域二" value="beijing"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item required label="房屋年代">
-      <el-input v-model="formInline.user" ></el-input>
+      <el-input v-model="data.years" ></el-input>
     </el-form-item>
     <el-form-item required label="房屋结构">
-      <el-select v-model="formInline.region" >
+      <el-select v-model="data.structure" >
         <el-option label="区域一" value="shanghai"></el-option>
         <el-option label="区域二" value="beijing"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item required label="委托单位">
-      <el-input v-model="formInline.user" ></el-input>
+      <el-input v-model="data.client" ></el-input>
     </el-form-item>
     <el-form-item required label="房屋层数">
-      <el-input v-model="formInline.user" ></el-input>
+      <el-input v-model="data.layers" ></el-input>
     </el-form-item>
     <el-form-item style="width:100%" required label="监测类型">
       <el-radio-group v-model="radio">
@@ -59,11 +59,19 @@
     </el-form-item>
     <el-form-item required label="项目资料">
     </el-form-item>
+    <el-button @click="submit">提交</el-button>
   </el-form>
 </template>
 
 <script>
   export default {
+    props:['showDrawMap','showCreate'],
+    computed:{
+      data(){
+        console.log(this.$store)
+        return this.$store.state.project.newProject
+      }
+    },
     data() {
       return {
         imageUrl: '',
@@ -90,8 +98,9 @@
         }
         return isJPG && isLt2M;
       },
-      onSubmit() {
-        console.log('submit!');
+      submit() {
+        this.$emit('update:showCreate',false)
+        this.$emit('update:showDrawMap',true)
       }
     }
   }
