@@ -1,10 +1,9 @@
 <template>
   <div class="list">
-    <el-table ref="multipleTable" @selection-change="handleSelectionChange" :data="data" border tooltip-effect="dark" style="width: 100%;text-algin:center">
-      <el-table-column type="selection" width="55">
-      </el-table-column>
-      <el-table-column show-overflow-tooltip v-for="(i,k) in title" :key="k" :prop="k" :label="i" />
-      <el-table-column prop="address" label="操作" :width="labelWidth">
+    <el-table ref="multipleTable" @selection-change="handleSelectionChange" :data="data" border  tooltip-effect="dark" style="width: 100%;text-algin:center">
+      <el-table-column align="center" type="selection" width="55" />
+      <el-table-column align="center" show-overflow-tooltip v-for="(i,k) in title" :key="k" :prop="k" :label="i"  />
+      <el-table-column align="center"  prop="address" label="操作" :width="labelWidth">
         <template slot-scope="scope">
           <el-button v-if="isLocation" @click="location(scope.row)" type="success" size="mini">定位</el-button>
           <el-button v-if="isCheck" @click="check(scope.row)" type="primary" size="mini">详情</el-button>
@@ -25,7 +24,9 @@
       <LocateMap :mapType="mapTypes[0]" :isShow.sync="showLocateMap" />
     </Model>
     <el-dialog :visible.sync="showDetails"></el-dialog>
-    <el-dialog :visible.sync="showEdit"> </el-dialog>
+    <el-dialog title="修改信息" width="1350px" :visible.sync="showEdit">
+      <Edit :visible.sync="showEdit" :title="editInfo.title" :data="editInfo.data" />
+    </el-dialog>
     <el-dialog title="权限配置" center :visible.sync="showRole">
     <el-tree
       :data="treeData"
@@ -42,11 +43,13 @@
 
 <script>
   import Model from "cpt/model";
+  import Edit from "./edit";
   import LocateMap from "cpt/map/LocateMap";
 
   export default {
     components: {
       Model,
+      Edit,
       LocateMap
     },
     props: {
@@ -74,6 +77,10 @@
         select: {},
         checked: [],
         date: null,
+        editInfo:{
+          title:this.title,
+          data:{}
+        },
         defaultProps: {
           children: 'children',
           label: 'label'
@@ -84,9 +91,9 @@
       check(e) {
         this.showDetails = true
       },
-      edit(e) {
+      edit(rowInfo) {
         this.showEdit = true
-        console.log(e);
+        this.editInfo.data=rowInfo
       },
       dele(e) {
         this.data.splice(e, 1);

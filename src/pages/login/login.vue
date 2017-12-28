@@ -23,6 +23,7 @@
   </div>
 </template>
 <script>
+import Cookies from 'js-cookie'
 export default {
   data() {
     return {
@@ -36,6 +37,7 @@ export default {
       let { userName, passWord, checked } = this;
       let r = await this.login({ userName, passWord });
       if (r.status == 1) {
+        console.log(Cookies.get('TOKEN'));
         this.jump("layout");
         if (checked) {
           localStorage.userName = userName;

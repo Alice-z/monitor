@@ -36,7 +36,7 @@
 
 <style lang="less" csoped>
   .resource {
-    height: 900px;
+    height: 800px;
     background: #fff;
     padding: 20px;
     ::after{

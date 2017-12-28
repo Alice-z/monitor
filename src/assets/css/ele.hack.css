@@ -1,0 +1,60 @@
+.el-range-editor.el-input__inner{
+  background-color: #F2F6FC!important;
+  border-radius: 0!important
+} 
+.el-button{
+  border-radius: 0!important
+}
+.el-button--success {
+  background: #05bc97;
+  border-color: #05bc97
+}
+.el-button--mini,
+.el-button--mini.is-round {
+  padding: 4px
+}
+
+.el-table thead {
+  color: #333;
+}
+/* 側邊欄 */
+
+.el-menu--collapse {
+  width: 60px!important
+}
+
+.el-icon-tickets {
+  position: relative;
+  left: -13px;
+}
+
+.el-message-box {
+  z-index: 2020!important;
+}
+.el-select .el-input__inner {
+  height: 34px!important;
+  width: 200px!important;
+}
+
+.el-range-editor {
+  height: 35px!important;
+  padding: 0!important;
+}
+
+.el-menu-item-group__title{
+  padding-top: 0;
+ padding-bottom: 0
+}
+/* 侧边栏背景颜色 */
+.el-submenu .el-menu-item{
+  background:rgba(10, 12, 48, 0.7)!important
+}
+.el-menu-item.is-active{
+  color: #05bc97;
+}
+.el-submenu .el-menu-item{
+  padding-left: 52px!important
+}
+.el-form-item__content{
+
+}

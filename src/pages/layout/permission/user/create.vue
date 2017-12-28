@@ -56,6 +56,7 @@
 </script>
 <style lang="less">
   .creat-form {
+    min-height:600px ;
     .el-form-item {
       width: 300px;
     }

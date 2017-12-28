@@ -1,7 +1,7 @@
 <template>
   <el-container>
-    <el-header style="background:#222;box-shadow:0 0 5px rgba(0, 0, 0, 0.5);line-height:70px;height:70px">
-      <span    class="title">
+    <el-header style="background:#0f0629;box-shadow:0 0 5px rgba(0, 0, 0, 0.5);line-height:70px;height:70px">
+      <span class="title">
         <img src="~@/assets/img/logo.png" style="vertical-align: middle">
         <span>房屋安全在线检测平台</span>
       </span>
@@ -12,7 +12,7 @@
         unique-opened 
         router 
         :collapse="isShow" 
-        background-color="#313131" 
+        background-color="#30426a" 
         text-color="#bfbfbf" 
         class="menu"
         default-active="home" 
@@ -23,7 +23,7 @@
         </el-menu-item>
         <el-submenu :index="item.path" :key="k" v-for="(item,k) in navInfo">
           <template slot="title">
-            <i :class="item.meta.icon" style="margin-right:15px" />
+            <i :class="item.icon" style="margin-right:15px" />
             <span v-text="item.name" />
           </template>
           <el-menu-item-group>
@@ -59,7 +59,8 @@
    height:100%; 
    width: 220px; 
    margin-right:-1px; 
-   box-shadow:0 0 5px rgba(0, 0, 0, 0.5); 
+   box-shadow:0 0 5px rgba(33, 7, 129, 0.5); 
+   color: #0f0629;
    .iconfont{
      font-size: 20px;
      top: -3px;

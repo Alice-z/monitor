@@ -38,9 +38,8 @@
     font-family: "微软雅黑";
     position: relative;
     .el-input__inner {
-      background: rgba(0, 0, 0, 0.4);
-      color: #fff;
-      border: #fff
+      color: #333;
+      border-radius: 0
     }
   }
 
@@ -50,9 +49,10 @@
   }
 
   #tangram-suggestion--TANGRAM__1r {
-    background: rgba(0, 0, 0, 0.6)!important;
+    // background: rgba(0, 0, 0, 0.6)!important;
+    outline: none;
     border: none;
-    color: #fff!important
+    color: #000!important
   }
 
   .mg {
