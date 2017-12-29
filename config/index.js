@@ -11,11 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/list': {
-        target: 'http://192.168.7.194:8080/list',
+      '/rest': {
+        target: 'http://192.168.7.194:9090/rest',
         changeOrigin: true,
         pathRewrite: {
-          '^/list': ''
+          '^/rest': ''
         }
       },
       '/api': {
@@ -28,7 +28,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '192.168.7.195', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

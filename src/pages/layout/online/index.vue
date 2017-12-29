@@ -11,13 +11,7 @@
         <!-- <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" /> -->
       </el-select>
       <label>时间段:</label>
-      <el-date-picker 
-        v-model="date" 
-        type="daterange" 
-        range-separator="至" 
-        start-placeholder="开始日期" 
-        end-placeholder="结束日期" 
-      />
+      <el-date-picker v-model="date" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" />
       <el-button type="success" size="small" v-text="'查询'" />
       <el-button type="primary" size="small" v-text="'导出'" />
     </header>
@@ -28,7 +22,12 @@
         <el-radio-button label="列表"></el-radio-button>
       </el-radio-group>
     </div>
-    <list :data="data" :title="title" isCheck isDele />
+    <div class="box">
+      <img v-if="showImg" src="~img/wanzi.png" class="zoom img" >
+      <barChart class="barChart" v-if="radio=='柱状图'" />
+      <lineChart class="barChart" v-if="radio=='曲线图'" />
+      <list v-if="radio=='列表'" :data="data" :title="title" isCheck isDele />
+    </div>
     <el-dialog title="新建项目" :visible.sync="showCreateProject">
       <button @click="show('showDrawMap')">划分区域 </button>
     </el-dialog>
@@ -38,12 +37,14 @@
 
 
 <script>
-  import chart from "cpt/chart";
+  import barChart from "./bar";
+  import lineChart from "./line";
   import list from 'cpt/list/index.vue'
   import model from "cpt/model";
   export default {
     components: {
-      chart,
+      barChart,
+      lineChart,
       list,
       model
     },
@@ -67,6 +68,9 @@
     computed: {
       data() {
         return this.$store.state.online.data
+      },
+      showImg(){
+        return this.radio!='列表'
       }
     },
     methods: {
@@ -90,4 +94,22 @@
   };
 
 </script>
+
+<style lang="less" scoped>
+#waring{
+  .box{
+    background: #fff;
+    min-height: 700px;
+    position: relative;
+  }
+  .img{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 200px;
+    height: 100px;
+  }
+}
+
+</style>
 

@@ -59,3 +59,13 @@
 .el-dialog__footer{
   text-align: center!important
 }
+.el-dialog__title{
+  font-size: 24px
+}
+.el-dialog__header::after{
+  content: '';
+  display: block;
+  margin: 10px auto 0;
+  border-bottom: 2px solid #cccccc;
+
+}

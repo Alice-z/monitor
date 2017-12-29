@@ -32,6 +32,11 @@ export default {
       passWord: localStorage.passWord || ""
     };
   },
+  created(){
+    // this.fetch('/rest/project/list/1/').then(r=>{
+    //   console.log(r);
+    // }) 
+  },
   methods: {
     log(){
       let r= this.util.getCookie('token')
@@ -58,7 +63,7 @@ export default {
 </script>
 <style lang="less">
 .login {
-  background: url("~img/login_bg1.png") no-repeat;
+  background: url("~img/login_bg.png") no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
@@ -71,7 +76,7 @@ export default {
   width: 554px;
   position: absolute;
   right: 412px;
-  top: 65px;
+  top: 165px;
   .iconfont {
     font-size: 24px;
     position: relative;

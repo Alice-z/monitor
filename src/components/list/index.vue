@@ -7,7 +7,7 @@
       border
       tooltip-effect="dark"
       style="width: 100%;text-algin:center">
-      <el-table-column align="center" type="selection" width="55" />
+      <el-table-column  type="selection" width="40" />
       <el-table-column
         align="center"
         show-overflow-tooltip v-for="(i,k) in title"
@@ -50,6 +50,8 @@
     </Model>
     <el-dialog
       width="1350px"
+      title="项目信息"
+      center
       :visible.sync="showDetails">
       <el-form
         :inline="true"
@@ -64,6 +66,7 @@
       </el-form>
     </el-dialog>
     <el-dialog
+      center
       title="修改信息"
       width="1350px"
       :visible.sync="showEdit">

@@ -20,8 +20,8 @@
       <el-button type="success" size="small" v-text="'刪除'" />
     </div>
     <list :data="data" :title="title" isEdit isCheck  />
-    <el-dialog title="收货地址" :visible.sync="isCreateProject">
-      <button @click="show('showdrawMap')">划分区域 </button>
+    <el-dialog center title="新建项目" :visible.sync="isCreateProject">
+      <button @click="show('showdrawMap')">确定 </button>
     </el-dialog>
   </div>
 </template>

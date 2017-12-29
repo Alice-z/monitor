@@ -1,29 +1,16 @@
 <template>
-  <div>
-    <crumbs/>
-    <div style="width:1000px">
-      <canvas id="myChart" width="400" height="300" />
-    </div>
-  </div>
+<div style="width:75%;margin:0 auto;padding:100px 0 0">
+
+    <canvas id="myChart" width="500" height="250" />
+</div>
 </template>
 
 <script>
   import Chart from 'chart'
   export default {
-    methods: {
-      data(data, label) {
-        return {
-          label: label,
-          data: data,
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 206, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(153, 102, 255)',
-            'rgb(255, 159, 64)'
-          ]
-        }
+    computed: {
+      bgColor(data, label) {
+       
       }
     },
     mounted() {
@@ -33,16 +20,16 @@
         data: {
           labels: ["设备1", "设备2", "设备3", "设备4", "设备5", "设备6"],
           datasets: [{
-              label: 1,
+              label: '最小值',
               data: [11, 2, 23, 11, 20],
               backgroundColor: 'rgb(255, 99, 132)',
             }, {
-              label: 2,
+              label:'最大值' ,
               data: [13, 21, 15, 16, 16],
               backgroundColor: 'rgb(54, 162, 235)',
             },
             {
-              label: 3,
+              label:'平均值' ,
               data: [10, 31, 15, 12, 26],
               backgroundColor: 'rgb(153, 102, 255)',
             }
@@ -63,8 +50,5 @@
 
 </script>
 
-<style>
 
-
-</style>
 
