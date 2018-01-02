@@ -28,7 +28,7 @@
       <lineChart class="barChart" v-if="radio=='曲线图'" />
       <list v-if="radio=='列表'" :data="data" :title="title" isCheck isDele />
     </div>
-    <el-dialog title="新建项目" :visible.sync="showCreateProject">
+    <el-dialog center title="新建项目" :visible.sync="showCreateProject">
       <button @click="show('showDrawMap')">划分区域 </button>
     </el-dialog>
 

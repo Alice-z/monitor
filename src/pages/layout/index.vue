@@ -5,7 +5,9 @@
         <img src="~@/assets/img/logo.png" style="vertical-align: middle">
         <span>房屋安全在线检测平台</span>
       </span>
-      <span style="float:right;color:#fff">admin</span>
+      <i style="float:right;color:#fff">
+        <img src="~img/user.png" style="width:50px;height:50px;border-radius:50%;position:relative;top:3px;right:10px" alt="">
+      </i>
     </el-header>
     <el-container>
       <el-menu unique-opened router :collapse="isShow" background-color="#30426a" text-color="#bfbfbf" class="menu" default-active="home"
@@ -52,6 +54,7 @@
     height: 100%;
     width: 220px;
     margin-right: -1px;
+    
     box-shadow: 0 0 5px rgba(33, 7, 129, 0.5);
     color: #0f0629;
     .iconfont {
@@ -99,7 +102,6 @@
   .padding {
     padding: 10px!important
   }
-
   .noPadding {
     padding: 0!important
   }

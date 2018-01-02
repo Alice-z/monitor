@@ -17,7 +17,7 @@
       <el-button type="success" size="small" v-text="'刪除'" />
     </div>
     <list labelWidth="200px" :data="data" :title="title" isCheck isEdit isIssued />
-    <el-dialog title="新建项目" :visible.sync="showCreateProject">
+    <el-dialog center title="新建项目" :visible.sync="showCreateProject">
       <button @click="show('showDrawMap')">划分区域 </button>
     </el-dialog>
 
