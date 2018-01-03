@@ -3,7 +3,7 @@
     <crumbs/>
     <header class="header">
       <label>项目名称:</label>
-      <el-select v-model="project_name" filterable placeholder="请选择">
+      <el-select v-model="name" filterable placeholder="请选择">
         <!-- <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" /> -->
       </el-select>
       <label>负责人:</label>
@@ -58,21 +58,22 @@
         mapTypes: BMAP_NORMAL_MAP,
         showDrawMap: false,
         showCreate: false,
-        project_name: '',
+        name: '',
         leader: '',
         title: {
-          project_name: "项目名称",
-          project_address: '项目地址',
-          client: "委托单位",
-          leader: "负责人",
-          years: "房屋年代",
-          layers: "房屋层数",
-          structure: "房屋结构",
+          name: "项目名称",
+          address: '项目地址',
+          entrustUnit: "委托单位",
+          principal: "负责人",
+          houseAge: "房屋年代",
+          houseNumber: "房屋层数",
+          houseStructure: "房屋结构",
         }
       };
     },
     async  created(){
-      this.$store.dispatch('getData')
+      await  this.$store.dispatch('GetData')
+      console.log(this.data);
     },
     computed: {
       data() {

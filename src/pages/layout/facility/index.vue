@@ -41,7 +41,7 @@
         device_type: '',
         iupr: '',
         title: {
-          device_type: "设备类型",
+          type: "设备类型",
           device_id: '项目地址',
           project_name: "所在项目",
           house: "所属房屋",

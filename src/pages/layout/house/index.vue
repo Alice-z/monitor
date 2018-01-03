@@ -21,7 +21,7 @@
     </div>
     <list :data="data" :title="title" isEdit isCheck  />
     <el-dialog center title="新建项目" :visible.sync="isCreateProject">
-      <button @click="show('showdrawMap')">确定 </button>
+      <Create :visible.sync="isCreateProject" />
     </el-dialog>
   </div>
 </template>
@@ -29,9 +29,11 @@
 
 <script>
   import list from 'cpt/list/index.vue'
+  import Create from './create.vue'
   export default {
     components: {
-      list
+      list,
+      Create
     },
     data() {
       return {
@@ -39,12 +41,12 @@
         project_name: '',
         date: '',
         title: {
-          device_name: "设备名称",
-          device_id: "设备器号",
-          iupr: "监测频率",
-          back_nb: "回传数值",
-          offset_x: "x方向偏移",
-          offset_y: "y方向偏移"
+          code: "栋号",
+          projectName: "所在项目",
+          structure:'房屋结构',
+          age: "房屋年代",
+          jcqssj: "起始监测时间",
+          jcsb:'监测设备'
         }
       };
     },
@@ -52,6 +54,9 @@
       data(){
         return this.$store.state.house.data
       }
+    },
+    created(){
+      this.$store.dispatch('GetHouseData')
     },
     methods: {
       show(prop) {

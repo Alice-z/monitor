@@ -4,8 +4,8 @@
       <template slot-scope="scope">
         <span v-if="spaceIconShow(index)" v-for="(space, levelIndex) in scope.row._level" class="ms-tree-space"></span>
         <span class=" is-outlined is-primary is-small" v-if="toggleIconShow(index,scope.row)" @click="toggle(scope.$index)">
-          <i v-if="!scope.row._expanded" class="el-icon-arrow-right" aria-hidden="true"></i>
-          <i v-if="scope.row._expanded" class="el-icon-arrow-down" aria-hidden="true"></i>
+          <i v-if="!scope.row._expanded" class="iconfont icon-plus" aria-hidden="true"></i>
+          <i v-if="scope.row._expanded" class="iconfont icon-minus" aria-hidden="true"></i>
         </span>
         <span v-else-if="index===0" class="ms-tree-space"></span>
         {{scope.row[column.dataIndex]}}
@@ -96,7 +96,6 @@
     methods: {
       //递归计算需要添加的子节点的id
       maxId(arr) {
-        let ids=[]
         arr.map(row => {
           this.ids.push(row.id)
           row.children.length !== 0 && this.maxId(row.children)

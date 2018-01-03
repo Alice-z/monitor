@@ -1,4 +1,4 @@
-import fetch from '@/api'
+import fetch from '@/api/request'
 import crumbs from 'cpt/crumbs'
 import list from 'cpt/list'
 import util from '@/utils'

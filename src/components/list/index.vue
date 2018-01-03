@@ -161,18 +161,13 @@
         this.showRole = true
       },
       deleAllchecked() {
-        let {   data,   checked } = this;
-        for (let i in data) {
-          for (let j in checked) {
-            checked[j].id == data[i].id && data.splice(i, 1);
-          }
-        }
+        this.fetch(`/rest/house/deleteAll/1/`, this.checked, 'delete')
       },
       handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
       },
       handleSelectionChange(vl) {
-        this.checked = vl;
+        this.checked = vl.map(r=>r.id)
       }
     }
   };

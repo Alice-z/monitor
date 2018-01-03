@@ -1,27 +1,10 @@
-import axios from 'axios'
-import {  Loading   } from 'element-ui';
-import cookies from 'js-cookie'
-import qs from 'qs'
-import util from '@/utils'
+import fetch from './request'
 
-export default async function (url, data, method = 'GET') {
-  const basUrl = ''
-  const loading = Loading.service()
-  const csrfToken = util.getCookie('csrfToken')
-  const headers = { 'x-csrf-token':csrfToken }||{}
-  try {
-    url = basUrl + url
-    if (method == 'GET' && data) {
-      url += '?' + qs.stringify(data)
-    }
-    let result = await axios({   url,  data,  method,  headers  })
-    loading.close()
-    return result.data
-  } catch (err) {
-    loading.close()
-    let config = "color: red; background: yellow; font-size: 24px;"
-    console.dir(err.config);
-    console.log("%c" + err.request.status, config);
-  }
+
+export default {
+  create: (path, data) => fetch(`/rest/${path}/doAdd/1/`, data, 'post'),
+  deleOne: (path, data) => fetch(`/rest/${path}/delete/1/`, data, 'delete'),
+  deleAll: (path, data) => fetch(`/rest/${path}/deleteAll/1/`, data, 'delete'),
+  getList: (path, data) => fetch(`/rest/${path}/list/1/`, data).then(r => r.page.result)
 }
 

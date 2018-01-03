@@ -1,70 +1,36 @@
 <template>
   <div>
-    <crumbs/>
-    <div style="width:1000px">
-      <canvas id="myChart" width="400" height="300" />
-    </div>
+  <el-upload
+    class="upload-demo"
+    ref="upload"
+    action="https://jsonplaceholder.typicode.com/posts/"
+    :on-preview="handlePreview"
+    list-type="picture-card"
+    :on-remove="handleRemove"
+    :file-list="fileList"
+    :auto-upload="false">
+  </el-upload>
+    <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
   </div>
 </template>
 
 <script>
-  import Chart from 'chart'
   export default {
-    methods: {
-      data(data, label) {
-        return {
-          label: label,
-          data: data,
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 206, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(153, 102, 255)',
-            'rgb(255, 159, 64)'
-          ]
-        }
-      }
+    data() {
+      return {
+        fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+      };
     },
-    mounted() {
-      var ctx = document.getElementById("myChart").getContext('2d');
-      var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ["设备1", "设备2", "设备3", "设备4", "设备5", "设备6"],
-          datasets: [{
-              label: 1,
-              data: [11, 2, 23, 11, 20],
-              backgroundColor: 'rgb(255, 99, 132)',
-            }, {
-              label: 2,
-              data: [13, 21, 15, 16, 16],
-              backgroundColor: 'rgb(54, 162, 235)',
-            },
-            {
-              label: 3,
-              data: [10, 31, 15, 12, 26],
-              backgroundColor: 'rgb(153, 102, 255)',
-            }
-          ]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
-        }
-      });
+    methods: {
+      submitUpload() {
+        this.$refs.upload.submit();
+      },
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
+      }
     }
   }
-
 </script>
-
-<style>
-
-
-</style>
-

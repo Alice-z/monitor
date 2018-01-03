@@ -43,15 +43,15 @@ export default {
       console.log(r)
     },
     async submit() {
-      let { userName, passWord, checked } = this;
-      let r = await this.fetch('/api/login',{ userName, passWord });
-      if (r.code == 1) {
+      // let { userName, passWord, checked } = this;
+      // let r = await this.fetch('/api/login',{ userName, passWord });
+      // if (r.code == 1) {
         this.jump("layout");
-        if (checked) {
-          localStorage.userName = userName;
-          localStorage.passWord = passWord;
-        }
-      } else
+      //   if (checked) {
+      //     localStorage.userName = userName;
+      //     localStorage.passWord = passWord;
+      //   }
+      // } else
         this.$message({
            showClose: true,
            message: "用户名密码错误",
@@ -63,7 +63,7 @@ export default {
 </script>
 <style lang="less">
 .login {
-  background: url("~img/login_bg.png") no-repeat;
+  background: url("~@/assets/img/login_bg.png") no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
